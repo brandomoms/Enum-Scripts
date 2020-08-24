@@ -36,10 +36,15 @@ fi
 echo "scanning target $host"
 
 # top 100 scan tcp
-nmap -oX "${scansdir}/tcp_top10_scan" -T4 --top-ports100 -Pn -A $host &
+nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 --top-ports 100 -Pn -A $host &
 wait
 echo "wrote scan results to \"${scansdir}/tcp_top10_scan\""
 
 # top 100 scan udp
+#nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 --top-ports 100 -Pn -A $host
+
 # all ports tcp
+nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 -p- -Pn -A $host
+
 # all ports udp
+#nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 --top-ports 100 -Pn -A $host
