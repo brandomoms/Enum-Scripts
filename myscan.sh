@@ -44,7 +44,9 @@ echo "wrote scan results to \"${scansdir}/tcp_top10_scan\""
 #nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 --top-ports 100 -Pn -A $host
 
 # all ports tcp
-nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 -p- -Pn -A $host
+echo "scanning all TCP ports"
+nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 -p- -Pn -A $host &
+
 
 # all ports udp
 #nmap -oX "${scansdir}/tcp_top10_scan.xml" -T4 --top-ports 100 -Pn -A $host
